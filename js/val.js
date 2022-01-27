@@ -45,7 +45,6 @@ const f4 = document.querySelector('#s2 .container .quatre');
 
 /* --------------------------------------------------- */
 
-const cont_s3 = document.querySelector('#s3 .cont');
 
 
 /* --------------------------------------------------- */

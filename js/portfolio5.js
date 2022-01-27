@@ -26,54 +26,35 @@ window.addEventListener('load', () => {
         document.querySelector('body').style.overflowY = 'visible';
         header.style.left = 0 + "px";
     })
-
-
-
     slider();
 
+    var tab_img = ["ux", "computer", "coding"];
+    document.getElementById('img1').src = "/image/ux.png";
 
-    function particle() {
-        var n = 20;
-        for (let i = 0; i < n; i++) {
-            let elem = document.createElement('i');
 
-            let size = Math.random() * 4;
-            elem.style.width = size + 'px';
+    let i = 0;
+    setInterval(() => {
+        if (i < tab_img.length) {
+            i++;
+            const img = document.getElementById('img1');
+            img.src = "/image/" + tab_img[i] + ".png";
+            if (i == 2) {
+                i -= 3;
+            }
+            setTimeout(() => {
+                setTimeout(() => {
+                    img.style.transform = "translate(0%,0)";
+                    img.style.opacity = "1";
+                }, 500);
+                img.style.transform = "translate(25%,0%)";
+                img.style.opacity = "0";
+            }, 2500);
 
-            let height = Math.random() * 50 + 20;
-            elem.style.height = height + "px";
 
-            let posx = Math.floor(Math.random() * cont_s3.clientWidth - 20);
-            elem.style.left = posx + 'px';
 
-            let delay = Math.random() * 5;
-            elem.style.animationDelay = delay + 's';
-
-            let speed = 2 - Math.random() * 0.5;
-            elem.style.animationDuration = speed + 's';
-
-            let color = ['hsl(194, 74%, 56%)', 'hsl(266, 74%, 56%)', 'hsl(338, 74%, 56%)', 'hsl(50, 74%, 56%)', 'hsl(122, 74%, 56%)']
-            elem.style.background = `linear-gradient(transparent ,${color[Math.floor(Math.random() * color.length)]} )`
-
-            cont_s3.appendChild(elem);
         }
-    }
+    }, 3000);
 
-    particle();
-
-    const h1_part = document.querySelector('#s3 .cont h1');
-    const h1_part_retour = document.querySelector('#s3 .cont .h1');
-
-    const h1_content_part = document.querySelector('#s3 .cont #content');
-
-    h1_part.addEventListener('click', h1_particle, false);
-    function h1_particle() {
-        h1_content_part.style.clipPath = 'circle(100% at 50% 50%)';
-    }
-    h1_part_retour.addEventListener('click', h1_particle_retour, false);
-    function h1_particle_retour() {
-        h1_content_part.style.clipPath = 'circle(0% at 50% 50%)';
-    }
 
 })
 

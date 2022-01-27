@@ -29,7 +29,6 @@ nav {
     height: 100%;
     width: 100%;
     border-radius: 50px;
-    z-index: 500000;
 }
 
 ul {
@@ -40,7 +39,6 @@ ul {
     grid-template-rows: repeat(4, 25%);
     align-items: center;
     justify-content: center;
-    z-index: 500000;
 }
 
 li {
@@ -49,7 +47,7 @@ li {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 500000;
+    z-index: 1;
 }
 
 nav ul li a {
@@ -57,7 +55,6 @@ nav ul li a {
     color: white;
     text-decoration: none;
     padding-inline: calc(15px + 5%);
-    z-index: 500000;
 }
 
 section {
@@ -540,11 +537,19 @@ img:hover {
     margin-left: 150px;
     height: 70%;
     margin-right: 10px;
-    overflow: hidden;
-    backdrop-filter: blur(5px);
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 200px;
     align-items: center;
-    justify-content: center;
+    transition: all 1s ease-out;
+    opacity: 0;
+    transform: translateY(50%);
+
+
+}
+
+#s3 .cont.active {
+    opacity: 1;
+    transform: translateY(0%);
 }
 
 #s3 .cont i {
@@ -565,7 +570,6 @@ img:hover {
 }
 
 #s3 .cont h1 {
-    position: relative;
     font-size: 5em;
     font-family: 'Titillium Web', sans-serif;
     z-index: 0;
@@ -574,57 +578,10 @@ img:hover {
     z-index: 1;
 }
 
-#s3 .cont h1::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0%;
-    height: 0%;
-    background-color: rgba(255, 255, 255, 0.438);
-    z-index: -1;
-}
-
-#s3 .cont h1:hover {
-    cursor: pointer;
-    transition-delay: 600ms;
-    color: #000000;
-}
-
-#s3 .cont h1:hover::after {
-    animation: h1_hover 2s ease-out forwards;
-}
-
-@keyframes h1_hover {
-    0% {
-        width: 0%;
-        height: 10%;
-        border-radius: 0px;
-    }
-
-    30% {
-        width: 100%;
-        height: 10%;
-    }
-
-    80% {
-        width: 100%;
-        height: 100%;
-    }
-
-    100% {
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-    }
-}
-
 #s3 .cont #content {
-    position: absolute;
     width: 100%;
     height: 100%;
     transition: 500ms ease-out;
-    clip-path: circle(0% at 50% 50%);
     z-index: 2;
     background-image: linear-gradient(45deg, rgb(86, 95, 151) 0%, rgb(86, 95, 151) 63%, rgb(105, 118, 165) 63%, rgb(105, 118, 165) 75%, rgb(125, 141, 179) 75%, rgb(125, 141, 179) 81%, rgb(144, 165, 193) 81%, rgb(144, 165, 193) 85%, rgb(164, 188, 207) 85%, rgb(164, 188, 207) 90%, rgb(183, 211, 221) 90%, rgb(183, 211, 221) 100%);
     display: grid;
@@ -649,6 +606,30 @@ img:hover {
     grid-area: 2 / 1 / 3 / 3;
     font-size: 1.2em;
     width: 80%;
+}
+
+#s3 .cont #image_project {
+    width: fit-content;
+    padding-inline: 10%;
+    margin-left: -10%;
+    z-index: 5;
+    height: 70%;
+    background-color: rgb(86, 95, 151);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10%;
+}
+
+#s3 .cont #image_project p {
+    font-size: 1.2em;
+}
+
+#img1 {
+    transition: all 400ms ease-out;
+    filter: drop-shadow(-10px 10px 10px black);
 }
 
 
